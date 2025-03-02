@@ -72,17 +72,27 @@ h1 {
     height: 100%;
     padding-top: 5px;
 }
+.quarter-marker {
+    position: absolute;
+    top: 0;
+    color: #777;
+    font-size: 12px;
+    text-align: center;
+    border-left: 1px dotted #ccc;
+    height: 85%;
+    padding-top: 20px;
+}
 .equipment-row {
     position: relative;
     margin-bottom: 20px;
-    padding-top: 10px;
+    padding-top: 20px;
     border-top: 1px solid #eee;
-    height: 60px;
+    height: 40px;
 }
 .equipment-label {
     position: absolute;
     left: 0;
-    top: 10px;
+    top: 20px;
     font-weight: bold;
 }
 .grid-lines {
@@ -117,7 +127,7 @@ h1 {
 .rectangle.grey {
     background-color: rgba(127, 140, 141, 0.7);
     color: white;
-    border: 1px solid #7f8c8d;
+    /* border: 1px solid #7f8c8d; */
 }
 .rectangle.grey.seed {
     width: 80px;
