@@ -511,6 +511,11 @@ document.addEventListener('DOMContentLoaded', function() {
         timelineContainer.appendChild(connectionContainer);
     }
 
+    function updateConnections() {
+        connections.forEach(connection => {
+            drawConnection(connection);
+        });
+    }
     function showError(message) {
         errorMessage.textContent = message;
         errorModal.style.display = 'block';
