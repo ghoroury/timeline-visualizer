@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Visualizer</title>
+    <link rel="stylesheet" href="styles-css.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Timeline Visualizer</h1>
+
+        <div class="upload-section" id="upload-area">
+            <p>Drop your Excel file here or</p>
+            <input type="file" id="file-input" accept=".xlsx" style="display: none;">
+            <button class="btn" id="file-select-btn">Select File</button>
+        </div>
+
+        <div class="controls">
+            <div>
+                <button class="btn" id="export-btn" disabled>Export as SVG</button>
+            </div>
+            <div>
+                <button class="btn" id="snap-grid-btn" disabled>Toggle Snap to Grid</button>
+            </div>
+        </div>
+
+        <div class="timeline-container">
+            <div id="timeline"></div>
+        </div>
+    </div>
+
+    <div id="loading" class="loading" style="display: none;">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Error</h2>
+            <p id="errorMessage"></p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.17/interact.min.js"></script>
+    <script src="script-js.js"></script>
+</body>
+</html>
