@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     uploadArea.addEventListener('dragover', handleDragOver);
     uploadArea.addEventListener('dragleave', handleDragLeave);
     uploadArea.addEventListener('drop', handleDrop);
-    // exportBtn.addEventListener('click', exportAsSVG);
+    exportBtn.addEventListener('click', exportAsImage);
     snapGridBtn.addEventListener('click', toggleSnapToGrid);
     closeModal.addEventListener('click', () => errorModal.style.display = 'none');
 
@@ -516,6 +516,27 @@ document.addEventListener('DOMContentLoaded', function() {
             drawConnection(connection);
         });
     }
+
+    function exportAsImage() {
+     loadingEl.style.display = 'flex';
+
+     html2canvas(timelineContainer, {
+         backgroundColor: 'white',
+         scale: 2 // Higher scale for better quality
+     }).then(canvas => {
+         const image = canvas.toDataURL('image/png');
+         const link = document.createElement('a');
+         link.href = image;
+         link.download = 'timeline_visualization.png';
+         link.click();
+         loadingEl.style.display = 'none';
+     }).catch(err => {
+         console.error('Export failed:', err);
+         showError('Failed to export the image. Please try again.');
+         loadingEl.style.display = 'none';
+     });
+    }
+
     function showError(message) {
         errorMessage.textContent = message;
         errorModal.style.display = 'block';
